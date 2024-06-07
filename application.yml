@@ -1,9 +1,31 @@
+# eureka:
+#   instance:
+#     prefer-ip-address: true
+#   client:
+#     fetch-registry: true
+#     register-with-eureka: true
+#     service-url:
+#       defaultZone: http://13.202.64.234:8761/eureka
+
+server:
+  port: 8085
+       
+# eureka:
+#   instance:
+#     hostname: 13.202.64.234         
+#   client:
+#     register-with-eureka: false
+#     fetch-registry: false
+#     service-url:
+#       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+
+
 eureka:
   instance:
+    hostname: 13.202.64.234
     prefer-ip-address: true
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      defaultZone: http://13.202.64.234:8761/eureka
-
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
